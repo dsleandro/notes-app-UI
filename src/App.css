@@ -2,6 +2,24 @@
      height: 100vh;
 }
 
+/* Navigation */
+
+#display{
+    display: flex !important;
+}
+
+#doNotDisplay{
+    display: none !important;
+}
+
+.small-screen-search {
+    display: none;
+}
+
+ul.navbar-nav{
+    display: inline-block;
+}
+
 #searchBtn{
     border-radius: 0;
 }
@@ -14,6 +32,22 @@
 .form-inline{
     flex-wrap: nowrap !important;
 }
+
+@media (max-width: 768px) {
+    .small-screen-search {
+        display: inline-block;
+    }
+
+    .large-screen-search {
+        display: none;
+    }
+
+    .form-inline{
+        width: 80%;
+    }
+}
+
+/* FORMS */
 .formSignin{
   max-width: 500px;
   margin: 0 auto;
