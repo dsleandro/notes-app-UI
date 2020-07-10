@@ -1,5 +1,5 @@
-const PATH_NOTES= "http://localhost:4000/api/notes/";
+const PATH_NOTES= "https://note-service-dsleandro.herokuapp.com/api/notes/";
 
-const PATH_USER = "http://localhost:4000";
+const PATH_USER = "https://note-service-dsleandro.herokuapp.com";
 
 export { PATH_NOTES, PATH_USER };
