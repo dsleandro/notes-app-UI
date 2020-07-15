@@ -42,20 +42,22 @@ export default function Navigation(props) {
                 </div>
 
                 {Auth.isAuthenticated ?
-                    <form className="form-inline w-30 mx-3 large-screen-search"
+                    <>
+                        {/* Hidden button for responsive design */}
+                        < button onClick={() => setResponsive(true)} id={responsive ? "doNotDisplay" : null} className="btn btn-light mx-3 small-screen-search"> <SearchIcon /> </button>
 
-                        /*show form on click responsive button*/
-                        id={responsive ? "display" : null}
+                        <form className="form-inline w-30 mx-3 large-screen-search"
 
-                        onSubmit={(e) => handleSearch(e)}>
-                        <input type="search" name="search" placeholder="Search"
-                            className="form-control" onChange={(e) => setSearch(e.target.value)}
-                        /> <button type="submit" className="btn btn-light mx-1"> <SearchIcon /> </button>
-                    </form>
+                            /*show form on click responsive button*/
+                            id={responsive ? "display" : null}
+
+                            onSubmit={(e) => handleSearch(e)}>
+                            <input type="search" name="search" placeholder="Search"
+                                className="form-control" onChange={(e) => setSearch(e.target.value)}
+                            /> <button type="submit" className="btn btn-light mx-1"> <SearchIcon /> </button>
+                        </form>
+                    </>
                     : null}
-
-                {/* Hidden button for respopsive design */}
-                <button onClick={() => setResponsive(true)} id={responsive ? "doNotDisplay" : null} className="btn btn-light mx-3 small-screen-search"> <SearchIcon /> </button>
 
                 <ul className="navbar-nav  ml-auto">
                     {Auth.isAuthenticated ? null : <> <Link className="btn btn-dark" to="/">Sign in</Link>
@@ -82,6 +84,6 @@ export default function Navigation(props) {
                 </div>
 
             </div>
-        </nav>
+        </nav >
     )
 }
