@@ -42,7 +42,12 @@ export default function SignIn() {
             } else {
                 setIsError(true);
             }
-        }).catch(() => setIsError(true));
+        }).catch(() => {
+
+            setIsLoading(false);
+            setIsError(true);
+
+        });
 
     }
     if (Auth.isAuthenticated === true) {

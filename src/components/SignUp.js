@@ -25,17 +25,25 @@ export default function SignUp() {
         if (inputs.password === inputs.confirmPassword) {
             //delete confirmation input
             delete inputs.confirmPassword;
+
             //Loading icon
             setIsLoading(true);
 
             await axios.post(PATH_USER + '/signup', inputs).then(res => {
+                //Remove loading icon
                 setIsLoading(false);
+                
                 if (res.data) {
                     history.push("/signin");
                 } else {
                     return <ErrorMessage message="Username already exists" />;
                 }
-            }).catch(() => <ErrorMessage message="Username already exists" />);
+            }).catch(() => {
+                //Remove loading icon
+                setIsLoading(false);
+                
+                return <ErrorMessage message="Username already exists" />;
+            });
 
         } else setIsError(true)
 
